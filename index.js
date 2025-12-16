@@ -91,11 +91,8 @@ app.get("/", async(req,res)=>{
             let data = await noteModel.find()
             res.send(data)
 })
-
 app.listen(3000, () => {
   console.log("The server is started");
 });
 
 module.exports = app;
-
-
