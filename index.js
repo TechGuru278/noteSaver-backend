@@ -87,9 +87,14 @@ app.delete("/delete/:id", async (req, res) => {
   await noteModel.findByIdAndDelete(req.params.id);
   res.json({ mesage: "The note is deleted" });
 });
+app.get("/", async(req,res)=>{
+            let data = await noteModel.find()
+            noteModel.send(data)
+})
 
 app.listen(3000, () => {
   console.log("The server is started");
 });
 
 module.exports = app;
+
