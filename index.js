@@ -5,7 +5,6 @@ let cors = require("cors");
 let app = express();
 app.use(express.json());
 app.use(cors());
-//     "mongodb+srv://shreyassk007godecor_db_user:F7rotP762lQpdQEp@cluster0.o1y1p3m.mongodb.net/"
 
 const dbURI = process.env.MONGODB_URI;
 
@@ -93,8 +92,6 @@ app.get("/", async (req, res) => {
   let data = await noteModel.find();
   res.send(data);
 });
-app.listen(3000, () => {
-  console.log("The server is started");
-});
+
 
 module.exports = app;
