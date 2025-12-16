@@ -89,7 +89,7 @@ app.delete("/delete/:id", async (req, res) => {
 });
 app.get("/", async(req,res)=>{
             let data = await noteModel.find()
-            noteModel.send(data)
+            res.send(data)
 })
 
 app.listen(3000, () => {
@@ -97,4 +97,5 @@ app.listen(3000, () => {
 });
 
 module.exports = app;
+
 
