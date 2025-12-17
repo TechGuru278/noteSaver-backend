@@ -59,7 +59,7 @@ let noteModel = mongoose.model("note", notSchema);
 
 // notes getting
 app.post("/notesGet", async (req, res) => {
-  let notesData = noteModel.create(req.body);
+  let notesData = await noteModel.create(req.body);
   res.json({
     message: "The note is added",
     data: notesData,
@@ -78,7 +78,7 @@ app.get("/note/:id", async (req, res) => {
 });
 
 app.put("/update/:id", async (req, res) => {
-  let udata = noteModel.findByIdAndUpdate(req.params.id, req.body, {
+  let udata = await noteModel.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
   res.json({ message: "The data updated" }, udata);
@@ -92,6 +92,5 @@ app.get("/", async (req, res) => {
   let data = await noteModel.find();
   res.send(data);
 });
-
 
 module.exports = app;
